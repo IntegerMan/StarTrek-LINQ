@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-// TODO: Add LINQ reference
+using System.Linq;
 
 namespace TechElevator.ConsoleApp
 {
@@ -11,29 +11,55 @@ namespace TechElevator.ConsoleApp
         {
             IEnumerable<Movie> movies = MovieProvider.BuildMovieDatabase();
 
-            foreach (Movie movie in movies)
+            // Filter movies using Where
+            foreach (Movie goodMovie in movies.Where(movie => movie.IsOnEarth)) // Equivalent of JS Function .filter
             {
-                Console.WriteLine(movie.Title);
+                Console.WriteLine(goodMovie.Title);
             }
 
-            // TODO: Filter movies using Where
+            // Use Select to Transform Values
+            IEnumerable<string> castInEachMovie = movies.Select(movie => movie.Cast); // Equivalent of JS myArray.map(i => i.title);
+            foreach (string cast in castInEachMovie)
+            {
+                Console.WriteLine(cast);
+            }
 
-            // TODO: Order movies using OrderBy
+            // Use FirstOrDefault           
+            Movie firstMovieWithWhales = null;
+            /*
+            foreach (Movie movie in movies)
+            {
+                if (movie.NumSpaceWhales > 0)
+                {
+                    firstMovieWithWhales = movie;
+                    break;
+                }
+            }
+            */
+            firstMovieWithWhales = movies.FirstOrDefault(movie => movie.NumSpaceWhales > 0); // JS Equivalent of myArray.find(i => i.numSpaceWhales > 0)
 
-            // TODO: Use Select to Transform Values
+            if (firstMovieWithWhales != null)
+            {
+                Console.WriteLine(firstMovieWithWhales.Title + " has whales in it");
+            } else
+            {
+                Console.WriteLine("No match found");
+            }
 
-            // TODO: Use FirstOrDefault
+            // Order movies using OrderBy
+            foreach (Movie movie in movies.OrderBy(movie => movie.Title))
+            {
+                Console.WriteLine(movie.Title + " (" + movie.NumSpaceBattles + ")");
+            }
 
-            // TODO: Use Min / Max
+            // Use Min / Max
+            int maxBattles = movies.Max(movie => movie.NumSpaceBattles);
+            int minBattles = movies.Min(movie => movie.NumSpaceBattles);
+            Console.WriteLine("Num Battles ranges from " + minBattles + " to " + maxBattles);
 
-            // TODO: Use Any
-
-            /* JavaScript Array Methods you may be familiar with
-                
-                const activeItems = myArray.filter(i => i.isActive);
-                
-
-             */
+            // Use Any
+            bool isEnterpriseEverDestroyed = movies.Any(movie => movie.ShipIsDestroyed);
+            Console.WriteLine("Was the ship ever destroyed? " + isEnterpriseEverDestroyed);
         }
     }
 }

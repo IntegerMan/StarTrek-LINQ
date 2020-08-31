@@ -37,6 +37,7 @@ namespace TechElevator.ConsoleApp
                     IsOnEarth = true,
                     ShipIsDestroyed = true,
                     IsGood = true,
+                    NumSpaceWhales = 2, // Named George and Gracie
                     Cast = "Original Series",
                 },
                 new Movie(5, "Stellar Voyage V: The Enterprise Joins a Cult!") {

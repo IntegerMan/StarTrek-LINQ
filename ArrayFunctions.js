@@ -3,7 +3,7 @@ const activeItems = myArray.filter(i => i.isActive);
 // Equivalent to LINQ's Where
 
 
-const firstMatch = myArray.find(i => i.id === 42);
+const firstMatch = myArray.find(i => i.numSpaceWhales > 0);
 // Equivalent to LINQ's FirstOrDefault
 
 
