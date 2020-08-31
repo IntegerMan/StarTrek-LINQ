@@ -16,12 +16,16 @@ namespace TechElevator.ConsoleApp
             }
 
             // TODO: Filter movies using Where
+
             // TODO: Order movies using OrderBy
-            // TODO: Transform movies using Select
 
-            // TODO: Find a movie using FirstOrDefault
+            // TODO: Use Select to Transform Values
 
-            // TODO: Get the maximum number of space battles in a movie
+            // TODO: Use FirstOrDefault
+
+            // TODO: Use Min / Max
+
+            // TODO: Use Any
         }
     }
 }
