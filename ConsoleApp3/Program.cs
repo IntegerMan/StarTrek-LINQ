@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+// TODO: Add LINQ reference
 
 namespace TechElevator.ConsoleApp
 {
@@ -26,6 +27,13 @@ namespace TechElevator.ConsoleApp
             // TODO: Use Min / Max
 
             // TODO: Use Any
+
+            /* JavaScript Array Methods you may be familiar with
+                
+                const activeItems = myArray.filter(i => i.isActive);
+                
+
+             */
         }
     }
 }
