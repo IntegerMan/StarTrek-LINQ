@@ -8,6 +8,7 @@ namespace TechElevator.ConsoleApp
 
         public string Title { get; set; }
         public string AltTitle { get; internal set; }
+        public string Cast { get; set; }
 
         public bool HasKlingons { get; set; }
         public bool HasRomulans { get; set; }
